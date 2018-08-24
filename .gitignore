@@ -2,3 +2,6 @@
 java/*/build/
 java/*/out/
 !/.gitignore
+*.pyc
+.solution.json
+__pycache__
