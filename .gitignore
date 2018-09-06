@@ -1,6 +1,8 @@
 .*
 java/*/build/
 java/*/out/
+kotlin/*/build/
+kotlin/*/bin/
 !/.gitignore
 *.pyc
 .solution.json
