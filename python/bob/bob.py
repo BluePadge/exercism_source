@@ -1,6 +1,6 @@
 def hey(phrase):
     phrase = phrase.strip()
-    if phrase == "":
+    if not phrase:
         return "Fine. Be that way!"
     elif phrase.isupper():
         if phrase.endswith("?"):
