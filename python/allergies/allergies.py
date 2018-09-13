@@ -10,14 +10,8 @@ class Allergies(object):
         return item in self.allergies
 
     def _match_allergies(self):
-        match_result = list(bin(self.score & 255)[2:])
-        match_result.reverse()
-        allergies = []
-        for index, value in enumerate(match_result):
-            if value == "1":
-                allergies.append(self.items[index])
-        return allergies
-
+        return [item for index,item in enumerate(self.items) if (1 << index) & self.score != 0]
+        
     @property
     def lst(self):
         return self.allergies
