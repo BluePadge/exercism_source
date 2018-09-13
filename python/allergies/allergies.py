@@ -1,29 +1,23 @@
-def list_index(score, rets):
-    if score <= 0:
-        return rets
-    index = 0
-    while 2 ** (index + 1) <= score:
-        index += 1
-    rets.append(index)
-    score -= 2 ** index
-    return list_index(score, rets)
-
 class Allergies(object):
 
     def __init__(self, score):
         self.score = score
         self.items = ["eggs", "peanuts", "shellfish",
                       "strawberries", "tomatoes", "chocolate", "pollen", "cats"]
+        self.allergies = self._match_allergies()
 
     def is_allergic_to(self, item):
-        return item in self.lst
+        return item in self.allergies
+
+    def _match_allergies(self):
+        match_result = list(bin(self.score & 255)[2:])
+        match_result.reverse()
+        allergies = []
+        for index, value in enumerate(match_result):
+            if value == "1":
+                allergies.append(self.items[index])
+        return allergies
 
     @property
     def lst(self):
-        results = []
-        rets = list_index(self.score,[])
-        for index in rets:
-            if index < len(self.items):
-                results.append(self.items[index])
-        return results
-
+        return self.allergies
