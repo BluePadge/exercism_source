@@ -1,4 +1,5 @@
 .*
 java/*/build/
 java/*/out/
+*.iml
 !/.gitignore
