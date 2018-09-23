@@ -2,4 +2,9 @@
 java/*/build/
 java/*/out/
 *.iml
+kotlin/*/build/
+kotlin/*/bin/
 !/.gitignore
+*.pyc
+.solution.json
+__pycache__
